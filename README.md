@@ -7,6 +7,7 @@ TaskFlow is a full-stack todo application developed by [MOHAN S]. It provides a 
 - Mark tasks as completed
 - View tasks in a calendar view
 - User authentication and authorization
+- Task repetition (daily, weekly, etc.)
 
 ## Technologies Used
 - Frontend: Angular

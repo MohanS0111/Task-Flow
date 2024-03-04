@@ -1,0 +1,15 @@
+package com.todoapplication.server;
+
+import org.springframework.boot.SpringApplication;
+import org.springframework.boot.autoconfigure.SpringBootApplication;
+import org.springframework.cloud.netflix.eureka.server.EnableEurekaServer;
+
+@SpringBootApplication
+@EnableEurekaServer
+public class TodoeurekaserverApplication {
+
+	public static void main(String[] args) {
+		SpringApplication.run(TodoeurekaserverApplication.class, args);
+	}
+
+}

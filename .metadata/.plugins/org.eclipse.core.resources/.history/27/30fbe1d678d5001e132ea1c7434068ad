@@ -1,0 +1,5 @@
+package com.todoapplication.gateway.configuration;
+
+public class CorsConfiguration {
+
+}

@@ -1,0 +1,28 @@
+org.mockito.exceptions.misusing.PotentialStubbingProblem: 
+Strict stubbing argument mismatch. Please check:
+ - this invocation of 'getOneTask' method:
+    taskService.getOneTask(
+    "user1@gmail.com",
+    "Task Name"
+);
+    -> at com.todoapplication.todo.controller.taskcontroller.TaskController.fetchOneTask(TaskController.java:77)
+ - has following stubbing(s) with different arguments:
+    1. taskService.getOneTask(
+    "user1@gmail.com",
+    "Excercise Time"
+);
+      -> at com.todoapplication.todo.controller.taskcontroller.TaskControllerTest.testFetchOneTaskSuccess(TaskControllerTest.java:185)
+Typically, stubbing argument mismatch indicates user mistake when writing tests.
+Mockito fails early so that you can debug potential problem easily.
+However, there are legit scenarios when this exception generates false negative signal:
+  - stubbing the same method multiple times using 'given().will()' or 'when().then()' API
+    Please use 'will().given()' or 'doReturn().when()' API for stubbing.
+  - stubbed method is intentionally invoked with different arguments by code under test
+    Please use default or 'silent' JUnit Rule (equivalent of Strictness.LENIENT).
+For more information see javadoc for PotentialStubbingProblem class.
+	at com.todoapplication.todo.controller.taskcontroller.TaskController.fetchOneTask(TaskController.java:77)
+	at com.todoapplication.todo.controller.taskcontroller.TaskControllerTest.testFetchOneTaskSuccess(TaskControllerTest.java:188)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:568)
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1511)
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1511)
+
